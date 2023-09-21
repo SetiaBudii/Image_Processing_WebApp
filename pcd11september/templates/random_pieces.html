@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container p-5 mt-5">
+  <h3 class="text-center fw-bold text-white">Random Pieces</h3>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="row m-1">
+      {% for i, j in image_coordinates %}
+      <div class="col-12 border text-center">
+        <img src="static/img/piece_random{{ j }}_{{ i }}.jpg" alt="image piece" style="width: 100px; height: 100px;">
+      </div>
+      {% if loop.index % num_rows == 0 %}
+      </div>
+      <div class="row m-1">
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<style>
+</style>
+{% endblock %}

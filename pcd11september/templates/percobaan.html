@@ -1,0 +1,150 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="section_our_solution">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="our_solution_category ">
+                <div class="solution_cards_box">
+                    <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon mx-auto">
+                            <img src="../static/img/Umum.png">
+                        </div>
+                        <div class="solu_title  text-center">
+                            <h3>Umum</h3>
+                        </div>
+                        <div class="solu_description  pb-3 text-center">
+                            <form id="" action="{{ url_for('normal') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Normal</button>
+                            </form>
+                            <form id="" action="{{ url_for('grayscale') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Grayscale</button>
+                            </form>
+                            <form id="" action="{{ url_for('zoomin') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Zoom In</button>
+                            </form>
+                            <form id="" action="{{ url_for('zoomout') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Zoom Out</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon mx-auto">
+                            <img src="../static/img/move.png">
+                        </div>
+                        <div class="solu_title text-center">
+                            <h3>Pergeseran</h3>
+                        </div>
+                        <div class="solu_description text-center">
+                            <form id="" action="{{ url_for('move_left') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Geser Kiri</button>
+                            </form>
+                            <form id="" action="{{ url_for('move_right') }}" method="POST"
+                                enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Geser Kanan</button>
+                            </form>
+                            <form id="" action="{{ url_for('move_up') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Geser Atas</button>
+                            </form>
+                            <form id="" action="{{ url_for('move_down') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Geser Bawah</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution_cards_box sol_card_top_3">
+                    <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon mx-auto">
+                            <img src="../static/img/brightness.png">
+                        </div>
+                        <div class="solu_title text-center">
+                            <h3>Penerangan</h3>
+                        </div>
+                        <div class="solu_description text-center">
+                        <form id="" action="{{ url_for('brightness_multiplication') }}" method="POST"
+                            enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-primary m-1">Terang (*)</button>
+                        </form>
+                        <form id="" action="{{ url_for('brightness_division') }}" method="POST"
+                            enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-primary m-1">Gelap (/)</button>
+                        </form>
+                        <form id="" action="{{ url_for('brightness_addition') }}" method="POST"
+                            enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-primary m-1">Terang (+)</button>
+                        </form>
+                        <form id="" action="{{ url_for('brightness_substraction') }}" method="POST"
+                            enctype="multipart/form-data">
+                            <button type="submit" class="btn btn-primary m-1">Gelap (-)</button>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon mx-auto">
+                            <img src="../static/img/histogram.png">
+                        </div>
+                        <div class="solu_title text-center">
+                            <h3>Analisis Gambar</h3>
+                        </div>
+                        <div class="solu_description text-center">
+                            <form id="" action="{{ url_for('histogram_rgb') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Histogram</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution_cards_box ">
+                    <div class="solution_card">
+                        <div class="hover_color_bubble"></div>
+                        <div class="so_top_icon mx-auto">
+                            <img src="../static/img/equalizer.png">
+                        </div>
+                        <div class="solu_title text-center">
+                            <h3>Pemprosesan</h3>
+                        </div>
+                        <div class="solu_description text-center">
+                            <form id="" action="{{ url_for('histogram_equalizer') }}" method="POST" enctype="multipart/form-data">
+                                <button type="submit" class="btn btn-primary m-1">Histogram Equalizer</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="row">
+                    {% if file_paths[2] %}
+                    <div class="col-md-4">
+                        <h3>Image RGB</h3>
+                        <img class="img-fluid" src="{{ url_for('static', filename='img/img_now.jpg') }}" alt="image here">
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Red Histogram</h3>
+                        <img class="img-fluid" src="{{ url_for('static', filename=file_paths[0]) }}" alt="image here">
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Green Histogram</h3>
+                        <img class="img-fluid" src="{{ url_for('static', filename=file_paths[1]) }}" alt="image here">
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Blue Histogram</h3>
+                        <img class="img-fluid" src="{{ url_for('static', filename=file_paths[2]) }}" alt="image here">
+                    </div>
+                    {% else %}
+                    <div class="col-md-6">
+                        <h3>Image Greyscaled</h3>
+                        <img class="img-fluid" src="{{ url_for('static', filename='img/img_now.jpg') }}" alt="image here">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Black Histogram</h3>
+                        <img class="img-fluid" src="{{ url_for('static', filename=file_paths[0]) }}" alt="image here">
+                    </div>
+                    {% endif %}
+                </div>
+</div>
+<style>
+</style>
+{% endblock %}

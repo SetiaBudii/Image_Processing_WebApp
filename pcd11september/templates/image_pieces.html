@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block body %}
+<div class="container p-5 mt-5">
+  <h3 class="text-center fw-bold text-white">Image Pieces</h3>
+  <div class="row d-flex align-items-center justify-content-center m-2">
+  {% for i in range(num_rows) %}
+  {% for j in range(num_rows) %}
+    <img src="static/img/piece_{{i}}_{{j}}.jpg" alt="image piece" style="width: 200px; height: 200px;">
+  {% endfor %}
+</div>
+<div class="row d-flex align-items-center justify-content-center m-2">
+{% endfor %}
+</div>
+</div>
+<style>
+</style>
+{% endblock %}

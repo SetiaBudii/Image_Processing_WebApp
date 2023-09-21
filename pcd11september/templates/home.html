@@ -1,0 +1,48 @@
+{% extends "layout.html" %} {% block body %}
+    <div class="container">
+         <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" class="form-upload">
+            <div class="row">
+                <div class="col-6 border-right d-flex align-items-center justify-content-center ">
+                    <input name="file" type="file" id="inputGroupFile04" accept="image/*" class="input-upload" onchange="preview()">
+                    <p class="text-upload">Drag your files here or click in this area.</p>
+                    <p class="text-upload" id="name-file"></p>
+                </div>
+                <div class="col-6 p-3 text-center">
+                    <p class="preview-text">Preview Image</p>
+                    <img class="preview-img" id="frame" src="../static/img/no-image.png" width="250px" height="250px"/>
+                </div>
+            </div>
+
+            <!-- <input name="file" type="file" id="inputGroupFile04" accept="image/*" class="input-upload" onchange="preview()">
+            <p class="text-upload">Drag your files here or click in this area.</p>
+            <div class="conteiner-preview text-center mb-4 p-3">
+                <p>Image Preview</p>
+                <img class="preview-img" id="frame" src="" width="150px" height="150px"/>
+            </div>
+            <button type="submit" class="button-upload">Upload</button> -->
+
+          </form>
+          <div class="row mt-3 mb-2 d-flex justify-content-center ">
+            <div class="col-auto">
+                <button type="submit" class="button-upload" onclick="uploadFile()">Upload</button>
+            </div>
+        </div>
+          
+          
+        <!-- <div class="row text-center">
+                <h1 class="display-4 border">Upload Gambar Citra</h1>
+        </div>
+        <div class="row text-center">
+            <p class="lead border "> Image Processing pada Web</p>
+        </div>
+        <div class="row text-center">
+            <form id="" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                <input name="file" class="form-control" type="file" id="inputGroupFile04" accept="image/*" /> 
+                <label for="inputGroupFile04" id="drop-area">
+                    <input name="file" type="file" id="inputGroupFile04" accept="image/*">
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </label>
+            </form>
+        </div>  -->
+    </div>
+{% endblock %}
